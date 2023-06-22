@@ -6,10 +6,87 @@
 
 .root {
   font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
 }
 
 .page {
   background-color: #7c00ff;
   padding: 30px;
   min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.main {
+  margin-top: 2rem;
+}
+
+.pomodoro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  outline: 0.2rem solid #fff;
+  padding: 2.5rem;
+}
+
+.pomodoro__tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1/4;
+  gap: 1rem;
+  width: 100%;
+}
+
+.tab {
+  background-color: #ff3;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab__time {
+  font-size: 8rem;
+  color: #fff;
+  text-align: center;
+}
+
+.tab__content {
+  display: none;
+  grid-column: 1/4;
+  margin: 2rem 0;
+}
+
+.tab__active {
+  background-color: yellowgreen;
+  display: block;
+}
+
+.tab__content--active {
+  display: block;
+}
+
+/* BUTTONS */
+.buttons {
+  grid-column: 1/4;
+  width: 100%;
+}
+
+.button {
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all ease-in 0.3s;
+}
+
+.button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.button__reset {
+  float: right;
 }

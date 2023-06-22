@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./main.css">
   <title> Pomodoro </title>
@@ -13,7 +14,60 @@
 
 <body class="root">
   <div class="page">
-    <h1>Pomodoro</h1>
+
+    <header class="header">
+      <h1 class="header__title">
+        Pomodoro <br> for <span> RDCLR </span> shcool
+      </h1>
+    </header>
+
+    <main class="main">
+      <div class="pomodoro wrapper">
+        <div class="pomodoro__tabs">
+
+          <div class="tab tab__active tab__content--active" data-tab="1">
+            <h2 class=" tab__time-title"> Pomodoro </h2>
+          </div>
+
+          <div class="tab" data-tab="2">
+            <h2 class="tab__time-title"> Короткий перерыв </h2>
+          </div>
+
+          <div class="tab " data-tab="3">
+            <h2 class="tab__time-title"> Длинный перерыв </h2>
+          </div>
+        </div>
+
+
+        <div class="tab__content tab__content--1 tab__content--active">
+          <span class="tab__time  "> 25:00 </span>
+        </div>
+        <div class="tab__content tab__content--2">
+          <span class="tab__time "> 5:00 </span>
+        </div>
+        <div class="tab__content tab__content--3">
+          <span class="tab__time "> 15:00 </span>
+        </div>
+
+
+
+        <div class="buttons">
+          <button class="button button__start">
+            Старт
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button class="button button__pause">
+            Пауза
+            <i class="fa-solid fa-pause"></i>
+          </button>
+          <button class="button button__reset">
+            Сбросить
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </button>
+        </div>
+
+      </div>
+    </main>
   </div>
   <script src="script.js"></script>
 </body>

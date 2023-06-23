@@ -55,6 +55,10 @@
   text-align: center;
 }
 
+.tab__time-title {
+  font-size: calc(100% + 0.6em);
+}
+
 .tab__content {
   display: none;
   grid-column: 1/4;

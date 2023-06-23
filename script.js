@@ -2,13 +2,14 @@ const pomodoro = document.querySelector('.pomodoro');
 const tabs = document.querySelectorAll('.tab');
 const tabsContent = document.querySelectorAll('.tab__content');
 
-const timerElement = document.querySelector('.tab__time');
+// const timerElement = document.querySelector('.tab__time');
 const buttonStart = document.querySelector('.button__start');
 const buttonPause = document.querySelector('.button__pause');
 const buttonReset = document.querySelector('.button__reset');
 
 let timer;
 let isPaused = false;
+// let timeLeft = 25 * 60;
 
 function startTimer() {
   buttonStart.disabled = true;
@@ -19,6 +20,8 @@ function startTimer() {
     let min = Math.floor(timeLeft / 60);
     let sec = timeLeft % 60;
 
+    const activeTabContent = document.querySelector('.tab__content--active');
+    const timerElement = activeTabContent.querySelector('.tab__time');
     timerElement.textContent = formatTime(min) + ':' + formatTime(sec);
 
     if (timeLeft === 0) {
@@ -32,8 +35,10 @@ function startTimer() {
 
 function resetTimer() {
   clearInterval(timer);
-  timerElement.textContent = '25:00';
-  timeLeft = 25 * 60;
+  const activeTabContent = document.querySelector('.tab__content--active');
+  const timerElement = activeTabContent.querySelector('.tab__time');
+  const defaultTime = activeTabContent.dataset.defaultTime;
+  timerElement.textContent = defaultTime;
 
   buttonStart.disabled = false;
   buttonReset.disabled = true;
@@ -69,20 +74,24 @@ pomodoro.addEventListener('click', function (e) {
 });
 
 function handleStartButtonClick() {
+  const activeTab = document.querySelector('.tab__content--active');
+
   if (isPaused) {
     startTimer();
-  } else {
-    const activeTab = document.querySelector('.tab__content--active');
-    if (activeTab.classList.contains('tab__content--1')) {
-      timeLeft = 25 * 60;
-    } else if (activeTab.classList.contains('tab__content--2')) {
-      timeLeft = 5 * 60;
-    } else if (activeTab.classList.contains('tab__content--3')) {
-      timeLeft = 15 * 60;
-    }
-
-    startTimer();
+    return;
   }
+
+  console.log(activeTab);
+
+  if (activeTab.classList.contains('tab__content--1')) {
+    timeLeft = 25 * 60;
+    // startTimer();
+  } else if (activeTab.classList.contains('tab__content--2')) {
+    timeLeft = 5 * 60;
+  } else if (activeTab.classList.contains('tab__content--3')) {
+    timeLeft = 15 * 60;
+  }
+  startTimer();
 }
 
 buttonStart.addEventListener('click', handleStartButtonClick);

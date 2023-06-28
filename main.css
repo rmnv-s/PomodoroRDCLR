@@ -94,3 +94,38 @@
 .button__reset {
   float: right;
 }
+
+@media (max-width: 768px) {
+  .pomodoro__tabs {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 425px) {
+  .button {
+    width: 100%;
+  }
+
+  .button:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .button__reset {
+    float: none;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .pomodoro {
+    grid-template-columns: 1fr;
+  }
+
+  .tab__time {
+    font-size: 6rem;
+  }
+  .pomodoro__tabs {
+    flex-wrap: wrap;
+  }
+}
